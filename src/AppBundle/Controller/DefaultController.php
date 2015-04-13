@@ -31,6 +31,12 @@ class DefaultController extends Controller
 
         if ($imageForm->isValid()) {
 
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($newImage);
+
+            $em->flush();
+
         }
 
         $params = array(

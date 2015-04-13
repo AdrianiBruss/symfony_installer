@@ -2,13 +2,16 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Image
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\ImageRepository")
+ * @ORM\HasLifeCycleCallbacks()
  */
 class Image
 {
@@ -78,7 +81,9 @@ class Image
     private $isPublished;
 
     /**
-     *
+     * @Assert\Image(
+     *  maxSize="1024k"
+     * )
      */
     private $tempFile;
 
@@ -291,5 +296,33 @@ class Image
     public function getIsPublished()
     {
         return $this->isPublished;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function prePersist(){
+
+
+        $this->setFilename(
+            sha1($this->getTempFile()->getClientOriginalName() )
+            .uniqid()
+            . '.' . $this->getTempFile()->guessExtension()
+        );
+
+        $this->setFilesize(
+            $this->getTempFile()->getSize()
+        );
+
+        $this->setMimeType(
+            $this->getTempFile()->getMimeType()
+        );
+
+        $this->setDateCreated(new DateTime());
+        $this->setDateModified(new DateTime());
+        $this->setIsPublished(true);
+
+        $this->getTempFile()->move(__DIR__."/../../../web/uploads/originals", $this->getFilename());
+
     }
 }
