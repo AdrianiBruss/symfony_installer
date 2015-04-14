@@ -7,6 +7,7 @@ use AppBundle\Form\ImageType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use abeautifulsite\SimpleImage;
 
 class DefaultController extends Controller
 {
@@ -36,6 +37,8 @@ class DefaultController extends Controller
             $em->persist($newImage);
 
             $em->flush();
+
+            $this->get('image_resizer')->generateSmallerImage($newImage);
 
         }
 

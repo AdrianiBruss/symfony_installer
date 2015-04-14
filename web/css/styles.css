@@ -1,0 +1,10 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    padding: 200px;
+    border: 15px solid #fff;
+    background-image:url('../uploads/originals/f9ebfc48ff6a14b8eccc011ee36ca54f647cdeb3552cd155c1ec6.png');
+    background-size: cover;
+}

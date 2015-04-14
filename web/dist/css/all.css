@@ -1,0 +1,30 @@
+body{
+    background-color: crimson;
+    height: 100vh;
+    color: #fff;
+    font-size:40px;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+    font-weight: 100;
+}
+input, textarea{
+
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #fff;
+    background: transparent;
+    width: 500px;
+    padding: 0 20px;
+    font-size: 30px;
+    color: #fff;
+
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    padding: 200px;
+    border: 15px solid #fff;
+    background-image:url('../../uploads/originals/f9ebfc48ff6a14b8eccc011ee36ca54f647cdeb3552cd155c1ec6.png');
+    background-size: cover;
+}

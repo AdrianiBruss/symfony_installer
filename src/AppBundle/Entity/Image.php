@@ -322,7 +322,23 @@ class Image
         $this->setDateModified(new DateTime());
         $this->setIsPublished(true);
 
-        $this->getTempFile()->move(__DIR__."/../../../web/uploads/originals", $this->getFilename());
+        $this->getTempFile()->move($this->getPathToOriginal(), $this->getFilename());
 
+    }
+
+    public function getPathToOriginal(){
+        return $this->getPathToUploads()."originals";
+    }
+
+    public function getPathToMedium(){
+        return $this->getPathToUploads()."medium";
+    }
+
+    public function getPathToThumbnail(){
+        return $this->getPathToUploads()."thumbnail";
+    }
+
+    function getPathToUploads(){
+        return __DIR__."/../../../web/uploads/";
     }
 }

@@ -43,6 +43,7 @@ monolog:
 
 assetic:
     use_controller: true
+    debug: false
 
 #swiftmailer:
 #    delivery_address: me@example.com
