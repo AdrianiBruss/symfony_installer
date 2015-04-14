@@ -47,4 +47,16 @@ class DefaultController extends Controller
         );
         return $this->render('upload/index.html.twig', $params);
     }
+
+
+    /**
+     * @Route("/trad", name="trad")
+     */
+    public function tradAction()
+    {
+
+        $params = array();
+
+        return $this->render('trad/index.html.twig', $params);
+    }
 }

@@ -4,7 +4,11 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        {% stylesheets 'css/*' output='dist/css/all.css' filter='cssrewrite'%}
+        {% stylesheets 'css/*'
+            output='dist/css/all.css'
+            filter='cssrewrite'
+            filter='uglifycss'
+        %}
             {% block stylesheets %}
                 <link rel="stylesheet" href="{{ asset_url }}"/>
             {% endblock %}

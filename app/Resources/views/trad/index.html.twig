@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h3>{{ 'my.translation.title' | trans }}</h3>
+    <p>{{ 'hey.dude' | trans({'%name%':'Adriani'}) }}</p>
+    <p>{{ 'post.number' | transchoice(0) }}</p>
+    <a href="{{ url('upload') }}">Uploads</a>
+
+    <a href="{{ url('trad',{'_locale':'fr'}) }}">Switch to Fr</a>
+
+{% endblock %}
