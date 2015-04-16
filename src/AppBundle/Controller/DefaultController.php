@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Image;
+use AppBundle\Event\CustomEvent;
 use AppBundle\Form\ImageType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -54,6 +55,10 @@ class DefaultController extends Controller
      */
     public function tradAction()
     {
+
+        $customEvent = new CustomEvent('hello');
+        $this->get('event_dispatcher')->dispatch('custom.test_event', $customEvent);
+
 
         $params = array();
 
